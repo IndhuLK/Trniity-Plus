@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Image1 from "../../assets/F1.jpg";
 import { Hourglass } from "lucide-react";
 
@@ -42,7 +44,11 @@ const EventCard = ({
   const timeLeft = useCountdown(targetDate);
 
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden border max-w-sm">
+    <div
+      className="bg-white rounded-xl shadow-lg overflow-hidden border max-w-sm"
+      data-aos="zoom-in"
+      data-aos-duration="1200"
+    >
       {/* Image Section */}
       <div className="relative">
         <img src={image} alt={title} className="w-full h-48 object-cover" />
@@ -58,12 +64,18 @@ const EventCard = ({
 
       {/* Content Section */}
       <div className="p-4">
-        <h2 className="text-lg font-bold">{title}</h2>
-        <p className="text-gray-600 text-sm mt-2">{description}</p>
+        <h2 className="text-lg font-bold" data-aos="fade-right">
+          {title}
+        </h2>
+        <p className="text-gray-600 text-sm mt-2" data-aos="fade-up">
+          {description}
+        </p>
 
         {/* Remaining Time Section */}
-        
-        <div className="mt-4 border rounded-lg p-4 relative border-green-900">
+        <div
+          className="mt-4 border rounded-lg p-4 relative border-green-900"
+          data-aos="fade-up"
+        >
           <h3 className="text-sm font-semibold text-gray-700 mb-3">
             Remaining Times
           </h3>
@@ -104,6 +116,10 @@ const EventCard = ({
 
 // Main Component
 const UpcomingEvents = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1200, once: true, easing: "ease-in-out" });
+  }, []);
+
   const events = [
     {
       date: "15",
@@ -139,9 +155,17 @@ const UpcomingEvents = () => {
 
   return (
     <div className="py-10 bg-green-100">
-      <div className="max-w-6xl mx-auto px-4 ">
-        <h1 className="text-2xl font-bold mb-4 text-center">Next Upcoming Event</h1>
-        <p className="text-gray-600 mb-10 text-center leading-loose">
+      <div className="max-w-6xl mx-auto px-4">
+        <h1
+          className="text-2xl font-bold mb-4 text-center"
+          data-aos="fade-down"
+        >
+          Next Upcoming Event
+        </h1>
+        <p
+          className="text-gray-600 mb-10 text-center leading-loose"
+          data-aos="fade-up"
+        >
           Join us for our next event, where we bring communities together to
           learn, share, and grow. This program is designed to create awareness,
           inspire action, and empower individuals to make a lasting impact.

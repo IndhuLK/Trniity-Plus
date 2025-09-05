@@ -4,6 +4,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "aos/dist/aos.css";
 import AOS from "aos";
+
 import Image1 from "../../assets/F1.jpg";
 import Image2 from "../../assets/F2.jpg";
 import Image3 from "../../assets/F3.jpg";
@@ -26,17 +27,20 @@ const projects = [
     image: Image2,
   },
 ];
+
 const HealthCare = () => {
   useEffect(() => {
     AOS.init({
       duration: 1200, // animation duration
-      easing: "ease-in-out", // easing option
+      easing: "ease-in-out", // smooth effect
       once: true, // run animation only once
     });
   }, []);
+
   return (
-    <div className=" font-family">
-      <section className="py-12 bg-white font-family" data-aos="fade-up">
+    <div className="font-family">
+      {/* Featured Projects Section */}
+      <section className="py-12 bg-white" data-aos="fade-up">
         {/* Heading */}
         <div
           className="text-center mb-8"
@@ -70,7 +74,7 @@ const HealthCare = () => {
                 <div
                   className="relative rounded-xl overflow-hidden shadow-md group"
                   data-aos="fade-up"
-                  data-aos-delay={index * 150}
+                  data-aos-delay={index * 200}
                 >
                   <img
                     src={project.image}
@@ -85,10 +89,11 @@ const HealthCare = () => {
         </div>
       </section>
 
+      {/* De-Addiction & Rehabilitation Section */}
       <div className="max-w-6xl mx-auto py-12 px-6">
         <div className="grid md:grid-cols-2 items-center gap-8">
           {/* Left Content */}
-          <div>
+          <div data-aos="fade-right" data-aos-delay="100">
             <h2 className="text-2xl font-bold mb-4">
               De-Addiction &amp; Rehabilitation
             </h2>
@@ -108,15 +113,17 @@ const HealthCare = () => {
               className="inline-flex bg-gradient-to-r from-green-900 to-green-600
        text-white px-10 py-2 rounded-full font-medium items-center mx-auto 
        gap-2 hover:shadow-md transition cursor-pointer"
+              data-aos="zoom-in"
+              data-aos-delay="200"
             >
               Contact Us
             </button>
           </div>
 
           {/* Right Image */}
-          <div>
+          <div data-aos="fade-left" data-aos-delay="200">
             <img
-              src={Image2} // Replace with your image path
+              src={Image2}
               alt="De-Addiction & Rehabilitation"
               className="w-full rounded-xl shadow-lg object-cover"
             />

@@ -7,7 +7,7 @@ const WhatDrives = () => {
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 px-6 md:px-16 py-12 bg-white">
         {/* Left Side Content */}
-        <div>
+        <div data-aos="fade-right">
           <p className="text-green-700 font-medium mb-2 flex items-center gap-2">
             What Drives Us
             <span className="text-green-700 text-xl">••••</span>
@@ -24,7 +24,7 @@ const WhatDrives = () => {
         </div>
 
         {/* Right Side Images */}
-        <div className="relative flex justify-center">
+        <div className="relative flex justify-center" data-aos="fade-left">
           {/* Outer container with single dashed border */}
           <div className="absolute top-4 left-4 w-[95%] h-[105%] border-2 border-dashed border-green-600 rounded-lg -z-0"></div>
 
@@ -32,16 +32,20 @@ const WhatDrives = () => {
           <div className="relative">
             {/* Main Image */}
             <img
-              src={hero1} // Replace with your image
+              src={hero1}
               alt="Main"
               className="rounded-lg shadow-lg w-80 md:w-96"
+              data-aos="zoom-in"
+              data-aos-delay="200"
             />
 
             {/* Overlapping Image */}
             <img
-              src={hero2} // Replace with your image
+              src={hero2}
               alt="Donation"
               className="absolute bottom-[-40px] right-15 rounded-lg shadow-md w-52 md:w-60"
+              data-aos="zoom-in-up"
+              data-aos-delay="400"
             />
           </div>
         </div>

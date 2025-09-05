@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MapPin, Clock } from "lucide-react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import Image2 from "../../assets/Herobg.jpg";
 import Image3 from "../../assets/community.jpg";
 import Image4 from "../../assets/F1.jpg";
@@ -13,7 +16,7 @@ const events = [
     location: "Tiruvannamalai – Tamil Nadu",
     date: "12 Aug 2025",
     time: "11:00 am – 01:00 pm",
-    image:Image2, // Replace with your image
+    image: Image2,
   },
   {
     id: 2,
@@ -23,8 +26,7 @@ const events = [
     location: "Erode – Tamil Nadu",
     date: "12 Aug 2025",
     time: "11:00 am – 01:00 pm",
-    image:
-      Image3, // Replace with your image
+    image: Image3,
   },
   {
     id: 3,
@@ -34,8 +36,7 @@ const events = [
     location: "Cuddalore – Tamil Nadu",
     date: "12 Aug 2025",
     time: "11:00 am – 01:00 pm",
-    image:
-      Image4, // Replace with your image
+    image: Image4,
   },
   {
     id: 4,
@@ -45,8 +46,7 @@ const events = [
     location: "Erode – Tamil Nadu",
     date: "12 Aug 2025",
     time: "11:00 am – 01:00 pm",
-    image:
-      Image3, // Replace with your image
+    image: Image3,
   },
   {
     id: 5,
@@ -56,8 +56,7 @@ const events = [
     location: "Erode – Tamil Nadu",
     date: "12 Aug 2025",
     time: "11:00 am – 01:00 pm",
-    image:
-      Image4, // Replace with your image
+    image: Image4,
   },
   {
     id: 6,
@@ -67,18 +66,28 @@ const events = [
     location: "Erode – Tamil Nadu",
     date: "12 Aug 2025",
     time: "11:00 am – 01:00 pm",
-    image:
-      Image2, // Replace with your image
+    image: Image2,
   },
 ];
 
 const ImpactfulJourneys = () => {
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true, easing: "ease-in-out" });
+  }, []);
+
   return (
     <div className="px-6 md:px-16 py-12 bg-white">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+      <h2
+        className="text-3xl md:text-4xl font-bold text-center mb-4"
+        data-aos="fade-down"
+      >
         Our Impactful Journeys
       </h2>
-      <p className="text-gray-600 text-center max-w-4xl mx-auto mb-10 leading-loose">
+      <p
+        className="text-gray-600 text-center max-w-4xl mx-auto mb-10 leading-loose"
+        data-aos="fade-up"
+      >
         Over the past months, we have carried out a range of programs that
         touched lives across education, health, environment, and empowerment.
         Each event was a step toward creating positive change and building a
@@ -86,10 +95,12 @@ const ImpactfulJourneys = () => {
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {events.map((event) => (
+        {events.map((event, index) => (
           <div
             key={event.id}
             className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300"
+            data-aos="zoom-in"
+            data-aos-delay={index * 100} // smooth stagger effect
           >
             <img
               src={event.image}

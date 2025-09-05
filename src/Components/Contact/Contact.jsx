@@ -1,27 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ContactImg from "../../assets/bgContact.jpg";
 import Form from "../../assets/Contactform.png";
 import { Mail, Phone, MapPin } from "lucide-react";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Contact = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
     <div className="font-family">
-      <div class="relative w-full h-110 flex items-center justify-center text-center text-white">
-        {/** <! Background Image -->*/}
+      {/* Hero Section */}
+      <div
+        className="relative w-full h-110 flex items-center justify-center text-center text-white"
+        data-aos="fade-down"
+      >
+        {/* Background Image */}
         <img
           src={ContactImg}
           alt="Background"
-          class="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
         />
 
-        {/* <!-- Overlay --> */}
-        <div class="absolute inset-0 bg-black/30"></div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/30"></div>
 
-        {/* <!-- Text Content --> */}
-        <div class="relative z-10 px-4">
-          <h2 class="md:text-3xl text-xl font-bold mb-4">We’re Here for You</h2>
-          <p class="md:text-lg md:px-50 text-sm">
+        {/* Text Content */}
+        <div className="relative z-10 px-4">
+          <h2 className="md:text-3xl text-xl font-bold mb-4">
+            We’re Here for You
+          </h2>
+          <p className="md:text-lg md:px-50 text-sm">
             Whether you need more information about our programs or want to
             support our initiatives, our team is ready to assist you. Connect
             with us anytime.
@@ -29,9 +40,11 @@ const Contact = () => {
         </div>
       </div>
 
-      {/*Contact Collabrate */}
-      <section className="py-12 bg-white text-center p-4">
-        {/** Heading **/}
+      {/* Connect & Collaborate */}
+      <section
+        className="py-12 bg-white text-center p-4"
+        data-aos="fade-up"
+      >
         <h2 className="text-2xl md:text-3xl font-bold mb-4">
           Connect & Collaborate
         </h2>
@@ -40,10 +53,13 @@ const Contact = () => {
           of a movement that empowers communities and transforms lives.
         </p>
 
-        {/** Contact Info Cards **/}
+        {/* Contact Info Cards */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 max-w-4xl mx-auto">
-          {/** Email Card **/}
-          <div className="flex items-center border border-gray-300 rounded-lg shadow-sm p-4 w-full md:w-1/3 hover:shadow-md transition">
+          {/* Email Card */}
+          <div
+            className="flex items-center border border-gray-300 rounded-lg shadow-sm p-4 w-full md:w-1/3 hover:shadow-md transition"
+            data-aos="zoom-in"
+          >
             <Mail className="w-6 h-6 text-green-600 mr-4" />
             <div className="text-left">
               <p className="text-gray-500 text-sm">Email us</p>
@@ -51,8 +67,12 @@ const Contact = () => {
             </div>
           </div>
 
-          {/** Call Card **/}
-          <div className="flex items-center border border-gray-300 rounded-lg shadow-sm p-4 w-full md:w-1/3 hover:shadow-md transition">
+          {/* Call Card */}
+          <div
+            className="flex items-center border border-gray-300 rounded-lg shadow-sm p-4 w-full md:w-1/3 hover:shadow-md transition"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
             <Phone className="w-6 h-6 text-green-600 mr-4" />
             <div className="text-left">
               <p className="text-gray-500 text-sm">Call us</p>
@@ -60,8 +80,12 @@ const Contact = () => {
             </div>
           </div>
 
-          {/** Location Card **/}
-          <div className="flex items-center border border-gray-300 rounded-lg shadow-sm p-4 w-full md:w-1/3 hover:shadow-md transition">
+          {/* Location Card */}
+          <div
+            className="flex items-center border border-gray-300 rounded-lg shadow-sm p-4 w-full md:w-1/3 hover:shadow-md transition"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
             <MapPin className="w-6 h-6 text-green-600 mr-4" />
             <div className="text-left">
               <p className="text-gray-500 text-sm">Our location</p>
@@ -71,25 +95,31 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Form  */}
+      {/* Contact Form */}
       <section className="flex flex-col md:flex-row items-center justify-center max-w-6xl mx-auto p-6 gap-6">
-        {/** Left Side - Image **/}
-        <div className="w-full md:w-1/2 flex justify-center">
+        {/* Left Side - Image */}
+        <div
+          className="w-full md:w-1/2 flex justify-center"
+          data-aos="fade-right"
+        >
           <img
             src={Form}
             alt="Contact Person"
-            className="w-full  object-contain transform scale-x-[-1]"
+            className="w-full object-contain transform scale-x-[-1]"
           />
         </div>
 
-        {/** Right Side - Contact Form **/}
-        <div className="w-full md:w-1/2 bg-white border border-gray-300 rounded-lg shadow-md p-6">
+        {/* Right Side - Contact Form */}
+        <div
+          className="w-full md:w-1/2 bg-white border border-gray-300 rounded-lg shadow-md p-6"
+          data-aos="fade-left"
+        >
           <h2 className="text-2xl font-bold mb-4">
             Let’s Start a Conversation
           </h2>
 
           <form className="space-y-4">
-            {/** Name Field **/}
+            {/* Name Field */}
             <div>
               <label className="block text-left font-semibold mb-1">Name</label>
               <input
@@ -99,7 +129,7 @@ const Contact = () => {
               />
             </div>
 
-            {/** Email Field **/}
+            {/* Email Field */}
             <div>
               <label className="block text-left font-semibold mb-1">
                 Email
@@ -111,7 +141,7 @@ const Contact = () => {
               />
             </div>
 
-            {/** Message Field **/}
+            {/* Message Field */}
             <div>
               <label className="block text-left font-semibold mb-1">
                 Message
@@ -122,7 +152,7 @@ const Contact = () => {
               />
             </div>
 
-            {/** Submit Button **/}
+            {/* Submit Button */}
             <button
               type="submit"
               className="bg-gradient-to-r from-green-900 to-green-600
@@ -134,8 +164,6 @@ const Contact = () => {
           </form>
         </div>
       </section>
-
-
     </div>
   );
 };

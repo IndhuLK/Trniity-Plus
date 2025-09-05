@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Em from "/src/assets/strong.jpg";
 import Image1 from "../../assets/F1.jpg";
 import Image2 from "../../assets/F2.jpg";
 import CountUp from "react-countup";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Communities = () => {
   const stats = [
@@ -11,21 +13,26 @@ const Communities = () => {
     { id: 3, number: 3000, label: "Women Empowered" },
   ];
 
+  // initialize AOS
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true, easing: "ease-in-out" });
+  }, []);
+
   return (
-    <div className="font-family">
-      <div className="relative w-full h-120 flex items-center justify-center text-center text-white">
-        {/** <! Background Image -->*/}
+    <div className="font-family overflow-hidden">
+      {/* Hero Section */}
+      <div
+        className="relative w-full h-120 flex items-center justify-center text-center text-white"
+        data-aos="fade-in"
+      >
         <img
           src={Em}
           alt="Background"
           className="absolute inset-0 w-full h-full object-cover"
         />
-
-        {/* <!-- Overlay --> */}
         <div className="absolute inset-0 bg-black/30"></div>
 
-        {/* <!-- Text Content --> */}
-        <div className="relative z-10 px-4">
+        <div className="relative z-10 px-4" data-aos="zoom-in">
           <h2 className="md:text-3xl text-xl font-bold mb-4">
             Building Stronger Communities Together
           </h2>
@@ -35,10 +42,10 @@ const Communities = () => {
           </p>
         </div>
       </div>
-      {/* */}
+
+      {/* அன்ன தான்யா Section */}
       <section className="px-6 md:px-20 py-12">
-        {/* Title */}
-        <div className="text-center mb-4">
+        <div className="text-center mb-4" data-aos="fade-up">
           <h2
             className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-green-900 
           to-green-400 bg-clip-text text-transparent mb-4 "
@@ -60,14 +67,14 @@ const Communities = () => {
 
         {/* Education Section */}
         <div className="grid md:grid-cols-2 gap-10 items-center py-10">
-          <div className="">
+          <div data-aos="fade-right">
             <img
-              src={Image1} // Replace with your image
+              src={Image1}
               alt="Education"
-              className="rounded-lg shadow-md h-80 w-200 object-cover border-2  border-green-700"
+              className="rounded-lg shadow-md h-80 w-200 object-cover border-2 border-green-700"
             />
           </div>
-          <div className="text-center">
+          <div className="text-center" data-aos="fade-left">
             <p className="text-gray-600 mb-4 leading-loose text-center">
               The ANNA DHANYA project was created with the belief that even a
               small act of kindness, like sharing a simple meal, can bring
@@ -87,11 +94,16 @@ const Communities = () => {
         </div>
       </section>
 
-      {/*Count */}
+      {/* CountUp Section */}
       <div className="bg-gray-100 py-10 mb-4">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-          {stats.map((stat) => (
-            <div key={stat.id} className="flex flex-col items-center">
+          {stats.map((stat, index) => (
+            <div
+              key={stat.id}
+              className="flex flex-col items-center"
+              data-aos="zoom-in"
+              data-aos-delay={index * 150}
+            >
               <h2 className="text-3xl font-bold bg-gradient-to-r from-green-900 to-green-600 bg-clip-text text-transparent">
                 <CountUp end={stat.number} duration={3} />+
               </h2>
@@ -104,5 +116,4 @@ const Communities = () => {
   );
 };
 
-
-export default Communities
+export default Communities;

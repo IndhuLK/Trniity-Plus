@@ -5,13 +5,12 @@ import icon2 from "/src/assets/graduation.png";
 import icon3 from "/src/assets/independence.png"; 
 import icon4 from "/src/assets/gender.png"; 
 
-
 const SustainableSection = () => {
   return (
     <section className="bg-green-50 py-12 font-family">
       <div className="container mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
         {/* Left Image */}
-        <div className="flex justify-center">
+        <div className="flex justify-center" data-aos="fade-right">
           <img
             src={image}
             alt="Community"
@@ -20,7 +19,7 @@ const SustainableSection = () => {
         </div>
 
         {/* Right Content */}
-        <div>
+        <div data-aos="fade-left">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 md:text-center">
             Driving Sustainable Change for Communities
           </h2>
@@ -33,52 +32,35 @@ const SustainableSection = () => {
 
           {/* Grid for 4 features */}
           <div className="grid grid-cols-2 gap-6">
-  {/* Feature Item */}
-  <div className="flex items-center gap-3">
-    <div className="w-14 h-14 rounded-full border-2 border-green-700 flex items-center justify-center">
-      <img
-        src={icon1} // Replace with your image path
-        alt="Quality Education"
-        className="w-8 h-8"
-      />
-    </div>
-    <span className="text-gray-700 font-medium">Quality Education</span>
-  </div>
+            {/* Feature Item */}
+            <div className="flex items-center gap-3" data-aos="zoom-in" data-aos-delay="100">
+              <div className="w-14 h-14 rounded-full border-2 border-green-700 flex items-center justify-center">
+                <img src={icon1} alt="Quality Education" className="w-8 h-8" />
+              </div>
+              <span className="text-gray-700 font-medium">Quality Education</span>
+            </div>
 
-  <div className="flex items-center gap-3">
-    <div className="w-14 h-14 rounded-full border-2 border-green-700 flex items-center justify-center">
-      <img
-        src={icon2}
-        alt="Good Health & Well-Being"
-        className="w-8 h-8"
-      />
-    </div>
-    <span className="text-gray-700 font-medium">Good Health & Well-Being</span>
-  </div>
+            <div className="flex items-center gap-3" data-aos="zoom-in" data-aos-delay="200">
+              <div className="w-14 h-14 rounded-full border-2 border-green-700 flex items-center justify-center">
+                <img src={icon2} alt="Good Health & Well-Being" className="w-8 h-8" />
+              </div>
+              <span className="text-gray-700 font-medium">Good Health & Well-Being</span>
+            </div>
 
-  <div className="flex items-center gap-3">
-    <div className="w-14 h-14 rounded-full border-2 border-green-700 flex items-center justify-center">
-      <img
-        src={icon3}
-        alt="Sustainable Livelihoods"
-        className="w-8 h-8"
-      />
-    </div>
-    <span className="text-gray-700 font-medium">Sustainable Livelihoods</span>
-  </div>
+            <div className="flex items-center gap-3" data-aos="zoom-in" data-aos-delay="300">
+              <div className="w-14 h-14 rounded-full border-2 border-green-700 flex items-center justify-center">
+                <img src={icon3} alt="Sustainable Livelihoods" className="w-8 h-8" />
+              </div>
+              <span className="text-gray-700 font-medium">Sustainable Livelihoods</span>
+            </div>
 
-  <div className="flex items-center gap-3">
-    <div className="w-14 h-14 rounded-full border-2 border-green-700 flex items-center justify-center">
-      <img
-        src={icon4}
-        alt="Gender Equality & Empowerment"
-        className="w-8 h-8"
-      />
-    </div>
-    <span className="text-gray-700 font-medium">Gender Equality & Empowerment</span>
-  </div>
-</div>
-
+            <div className="flex items-center gap-3" data-aos="zoom-in" data-aos-delay="400">
+              <div className="w-14 h-14 rounded-full border-2 border-green-700 flex items-center justify-center">
+                <img src={icon4} alt="Gender Equality & Empowerment" className="w-8 h-8" />
+              </div>
+              <span className="text-gray-700 font-medium">Gender Equality & Empowerment</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
